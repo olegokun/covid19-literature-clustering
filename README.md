@@ -4,6 +4,8 @@ COVID-19 literature clustering using Affinity Propagation (the number of cluster
 
 ## Motivation
 
+## Data
+
 ## Approach
 
 ## Results
