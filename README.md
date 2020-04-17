@@ -1,3 +1,11 @@
-# COVID-19 Literature Clustering with Unknown Number of Clusters
+# COVID-19 Literature Clustering
 
-COVID-19 literature clustering using Affinity Propagation
+COVID-19 literature clustering using Affinity Propagation (the number of clusters is unknown in advance)
+
+## Motivation
+
+## Approach
+
+## Results
+
+## Discussion
