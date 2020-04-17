@@ -1,4 +1,6 @@
-https://media3.picsearch.com/is?DcTQdjuy5bQhzMPUL1d85olnj0YkiW0oZz_Y739XI2U&height=284
+<meta name='keywords' content='Text clustering, Affinity Propagations, TF-IDF'>
+  
+![Text Clustering](https://media3.picsearch.com/is?DcTQdjuy5bQhzMPUL1d85olnj0YkiW0oZz_Y739XI2U&height=284)
 
 # COVID-19 Literature Clustering
 
