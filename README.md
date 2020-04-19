@@ -52,7 +52,6 @@ Key features:  ['al', 'et', 'protein', 'virus', 'cell', 'viral', 'infection', 'r
 ```
 
 Despite the initial goals, the clustering produces one large cluster comprised of 24,000 articles:
-
 ```
 Cluster 8 details:
 ----------------------------------------------------------------------------------------------------
@@ -60,6 +59,7 @@ Key features:  ['virus', 'health', 'infection', 'disease', 'cell', 'respiratory'
 #articles in a cluster:  24009
 ```
 
+For comparison, this is how the top 30 words looked like for this cluster after the "seed" set clustering.
 ```
 Cluster 8 details:
 ----------------------------------------------------------------------------------------------------
@@ -67,4 +67,9 @@ Key features:  ['emergence', 'city', 'spatial', 'probability', 'number', 'hetero
 #articles in a cluster:  4
 ```
 
+In addition to cluster analysis, model objects for the TF-IDF vectorizer and the Affinity Propagation clusterer as well as results of text pre-processing and clustering are saved in files. The word clouds for clusters are also saved in PNG files named *cluster_i*, where *i* ranges from 0 to 15.
+
 ## Discussion
+Even though the majority of articles were still assigned to a single cluster, thus emphasizing the difficulty of automatic differentiation between articles written on very similar topics, smaller but still significant clusters like Cluster 1 could be useful in answering research questions.
+
+The two-stage clustering is believed to lead to better results than trying to cluster all articles at once, because it preserves small clusters ("seeds"), where larger and more meaningful clusters can emerge from when more articles are added.
