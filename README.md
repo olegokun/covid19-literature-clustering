@@ -25,6 +25,14 @@ In the second stage, using the found clusters as "seeds", the rest of articles a
 ## Comments to code
 All code is within a single [Jupyter notebook](https://github.com/olegokun/covid19-literature-clustering/blob/master/Data%20Clustering%20with%20Unknown%20Number%20of%20Clusters%20v1.ipynb).
 
+Loading text from JSON files is adopted from earlier contributors as acknowledged in the notebook comments. Main fields of interest are 'paper_id', 'abstract' and 'body_text'. For convenience, I merged the latter two into a single field 'text'.
+
+As later versions of the dataset included articles witten in other languages rather than English, the *fasttext* package is used to identify language and to retain only articles whose language is English.
+
+The battery of text pre-processing techniques in function *normalized_corpus* cleans up text, thus preserving only nouns and adjectives, which top 100 [bi-grams](https://en.wikipedia.org/wiki/Bigram) are extracted from. The list of bi-grams for each article is flattened out before further processing. Due to multiple operations, text pre-processing is the most time-consuming part of the entire pipeline.
+
+As raw text needs to be transformed into a digital form, [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) features are extracted from the flattened bi-grams. When doing text clustering on TF-IDF, top 30 words are assigned to each cluster that best characterize it. Cluster analysis also includes [word cloud](https://en.wikipedia.org/wiki/Tag_cloud#Text_cloud) generation for each cluster.
+
 ## Results
 
 ## Discussion
