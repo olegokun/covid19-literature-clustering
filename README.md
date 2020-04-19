@@ -23,6 +23,7 @@ In the first stage, I randomly selected a small subset of articles and group the
 In the second stage, using the found clusters as "seeds", the rest of articles are added (one-by-one) to the clusters based on the closest centroid principle. The list of top N words describing each cluster is updated each time when a new article is assigned to a cluster, so that when all 30K articles are processed, such lists can be used to narrow down search for answers to a particular practical question.
 
 ## Comments to code
+All code is within a single [Jupyter notebook](https://github.com/olegokun/covid19-literature-clustering/blob/master/Data%20Clustering%20with%20Unknown%20Number%20of%20Clusters%20v1.ipynb).
 
 ## Results
 
