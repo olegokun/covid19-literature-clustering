@@ -20,7 +20,7 @@ Nevertheless, even Affinity Propagation might fail to discern fine details in su
 
 In the first stage, I randomly selected a small subset of articles and group them with Affinity Propagation. The motivation was that a clustering algorithm would discover multiple clusters, no matter how small they are, when a dataset is small and articles are randomly picked. The goal was to determine the number of clusters, find their centroids and extract the top N words characterizing each cluster.
 
-In the second stage, using the found clusters as "seeds", the rest of articles are added (one-by-one) to the clusters based on the closest centroid principle. The list of top N words describing each cluster is updated each time when a new article is assigned to a cluster, so that when all 30K articles, such lists can be used to narrow down search for answers to a particular practical question.
+In the second stage, using the found clusters as "seeds", the rest of articles are added (one-by-one) to the clusters based on the closest centroid principle. The list of top N words describing each cluster is updated each time when a new article is assigned to a cluster, so that when all 30K articles are processed, such lists can be used to narrow down search for answers to a particular practical question.
 
 ## Comments to code
 
