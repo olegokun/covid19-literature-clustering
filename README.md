@@ -29,10 +29,42 @@ Loading text from JSON files is adopted from earlier contributors as acknowledge
 
 As later versions of the dataset included articles witten in other languages rather than English, the *fasttext* package is used to identify language and to retain only articles whose language is English.
 
-The battery of text pre-processing techniques in function *normalized_corpus* cleans up text, thus preserving only nouns and adjectives, which top 100 [bi-grams](https://en.wikipedia.org/wiki/Bigram) are extracted from. The list of bi-grams for each article is flattened out before further processing. Due to multiple operations, text pre-processing is the most time-consuming part of the entire pipeline.
+The battery of text pre-processing techniques in function `normalized_corpus` cleans up text, thus preserving only nouns and adjectives, which top 100 [bi-grams](https://en.wikipedia.org/wiki/Bigram) are extracted from. The list of bi-grams for each article is flattened out before further processing. Due to multiple operations, text pre-processing is the most time-consuming part of the entire pipeline.
 
 As raw text needs to be transformed into a digital form, [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) features are extracted from the flattened bi-grams. When doing text clustering on TF-IDF, top 30 words are assigned to each cluster that best characterize it. Cluster analysis also includes [word cloud](https://en.wikipedia.org/wiki/Tag_cloud#Text_cloud) generation for each cluster.
 
 ## Results
+
+Affinity Propagation clustering of 100 articles randomly selected for cluster seeding reveals 16 small clusters where any cluster does not exceed in size other clusters. Initially, words describing clusters may look a bit noisy as it seems sometimes certain surnames were included as shown below:
+```
+Cluster 1 details:
+----------------------------------------------------------------------------------------------------
+Key features:  ['al', 'fel', 'et', 'infantum', 'maia', 'brianti', 'basso', 'pennisi', 'gallego', 'clinical', 'disease', 'robert', 'manzillo', 'pimenta', 'richter', 'hervás', 'dedola', 'magalon', 'fileccia', 'bardagi', 'leishmania', 'attipa', 'feline', 'chatzis', 'solano', 'mattos', 'laruelle', 'rüfenacht', 'blood', 'high']
+#articles in a cluster:  13
+```
+
+However, once many more articles are added to this cluster, top words better concentrate on "technical" content:
+```
+Cluster 1 details:
+----------------------------------------------------------------------------------------------------
+Key features:  ['al', 'et', 'protein', 'virus', 'cell', 'viral', 'infection', 'rna', 'activity', 'acid', 'antibody', 'human', 'expression', 'immune', 'disease', 'replication', 'gene', 'analysis', 'type', 'ifn', 'domain', 'sequence', 'membrane', 'animal', 'response', 'amino', 'respiratory', 'genome', 'mice', 'coronavirus']
+#articles in a cluster:  2098
+```
+
+Despite the initial goals, the clustering produces one large cluster comprised of 24,000 articles:
+
+```
+Cluster 8 details:
+----------------------------------------------------------------------------------------------------
+Key features:  ['virus', 'health', 'infection', 'disease', 'cell', 'respiratory', 'viral', 'activity', 'influenza', 'protein', 'human', 'analysis', 'age', 'al', 'control', 'case', 'group', 'clinical', 'care', 'expression', 'antibody', 'acute', 'blood', 'acid', 'risk', 'high', 'study', 'immune', 'response', 'rna']
+#articles in a cluster:  24009
+```
+
+```
+Cluster 8 details:
+----------------------------------------------------------------------------------------------------
+Key features:  ['emergence', 'city', 'spatial', 'probability', 'number', 'heterogeneity', 'human', 'population', 'intermediate', 'event', 'infectious', 'em', 'size', 'pathogen', 'village', 'extinction', 'homogeneity', 'infinite', 'host', 'evolutionary', 'strain', 'novel', 'mutation', 'route', 'effect', 'analytical', 'reproductive', 'zoonotic', 'general', 'outbreak']
+#articles in a cluster:  4
+```
 
 ## Discussion
