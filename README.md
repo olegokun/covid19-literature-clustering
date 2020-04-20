@@ -27,7 +27,7 @@ All code is within a single [Jupyter notebook](https://github.com/olegokun/covid
 
 Loading text from JSON files is adopted from earlier contributors as acknowledged in the notebook comments. Main fields of interest are 'paper_id', 'abstract' and 'body_text'. For convenience, I merged the latter two into a single field 'text'.
 
-As later versions of the dataset included articles witten in other languages rather than English, the *fasttext* package is used to identify language and to retain only articles whose language is English. To use *fasttext*, one needs to download the pre-trained model *lid.176.tfz* by following the link in my notebook. 
+As later versions of the dataset included articles witten in other languages rather than English, the *fasttext* package is used to identify language and to retain only articles whose language is English. To use *fasttext*, one needs to download the pre-trained model *lid.176.ftz* by following the link in my notebook. 
 
 The battery of text pre-processing techniques in function `normalized_corpus` cleans up text, thus preserving only nouns and adjectives, which top 100 [bi-grams](https://en.wikipedia.org/wiki/Bigram) are extracted from. The list of bi-grams for each article is flattened out before further processing. Due to multiple operations, text pre-processing is the most time-consuming part of the entire pipeline.
 
